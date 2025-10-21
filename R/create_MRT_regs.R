@@ -1,8 +1,8 @@
 
-install.packages(c("remotes", "dplyr"))
-remotes::install_github("rjdverse/rjd3toolkit")
-remotes::install_github("rjdverse/rjd3workspace")
-remotes::install_github("TanguyBarthelemy/rjd3production")
+# install.packages(c("remotes", "dplyr"))
+# remotes::install_github("rjdverse/rjd3toolkit")
+# remotes::install_github("rjdverse/rjd3workspace")
+# remotes::install_github("TanguyBarthelemy/rjd3production")
 
 library("rjd3toolkit")
 library("dplyr")
@@ -52,4 +52,4 @@ regs_cjo_MRT_m <- create_insee_regressors(
 write.table(regs_cjo_MRT_t, file = "C:/Users/INSEE_User/Documents/Projets R/Formation-JD+-Ansade/Donnees/reg_cjo_MRT_t.csv", sep = ";", quote = F, row.names = F)
 write.table(regs_cjo_MRT_m, file = "C:/Users/INSEE_User/Documents/Projets R/Formation-JD+-Ansade/Donnees/reg_cjo_MRT_m.csv", sep = ";", quote = F, row.names = F)
 
-rjd3workspace::write_calendars(list(cal_MRT = cal_MRT), file = "C:/Users/INSEE_User/Documents/Projets R/data/cal_MRT.xml")
+rjd3workspace::write_calendars(list(cal_MRT = cal_MRT), file = "C:/Users/INSEE_User/Documents/Projets R/Formation-JD+-Ansade/Donnees/Calendars.xml")
