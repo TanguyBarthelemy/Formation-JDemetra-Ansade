@@ -1,3 +1,9 @@
+
+install.packages(c("remotes", "dplyr"))
+remotes::install_github("rjdverse/rjd3toolkit")
+remotes::install_github("rjdverse/rjd3workspace")
+remotes::install_github("TanguyBarthelemy/rjd3production")
+
 library("rjd3toolkit")
 library("dplyr")
 library("rjd3production")
