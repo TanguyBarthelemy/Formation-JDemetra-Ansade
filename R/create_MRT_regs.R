@@ -13,6 +13,7 @@ fetes <- openxlsx::read.xlsx(
 cal_MRT <- national_calendar(c(
     list(
         special_day("NEWYEAR"),
+        special_day("MAYDAY"),
         fixed_day(month = 11, day = 28)
     ),
     lapply(fetes$date, single_day)
@@ -23,16 +24,26 @@ regs_cjo_MRT_t <- create_insee_regressors(
     frequency = 4,
     length = 80,
     cal = cal_MRT
-)
+) |>
+    as.data.frame() |>
+    mutate(date = seq.Date(from = as.Date("2010-01-01"),
+                           length.out = 80,
+                           by = "quarter") |> as.character(),
+           .before = "LY")
 
 regs_cjo_MRT_m <- create_insee_regressors(
     start = c(2010, 1),
     frequency = 12,
     length = 240,
     cal = cal_MRT
-)
+) |>
+    as.data.frame() |>
+    mutate(date = seq.Date(from = as.Date("2010-01-01"),
+                           length.out = 240,
+                           by = "month") |> as.character(),
+           .before = "LY")
 
 write.table(regs_cjo_MRT_t, file = "C:/Users/INSEE_User/Documents/Projets R/Formation-JD+-Ansade/Donnees/reg_cjo_MRT_t.csv", sep = ";", quote = F, row.names = F)
 write.table(regs_cjo_MRT_m, file = "C:/Users/INSEE_User/Documents/Projets R/Formation-JD+-Ansade/Donnees/reg_cjo_MRT_m.csv", sep = ";", quote = F, row.names = F)
 
-rjd3workspace::write_calendars(cal_MRT, file = "../data/cal_MRT.xml")
+rjd3workspace::write_calendars(cal_MRT, file = "C:/Users/INSEE_User/Documents/Projets R/data/cal_MRT.xml")
