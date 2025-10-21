@@ -34,3 +34,5 @@ regs_cjo_MRT_m <- create_insee_regressors(
 
 write.table(regs_cjo_MRT_t, file = "C:/Users/INSEE_User/Documents/Projets R/Formation-JD+-Ansade/Donnees/reg_cjo_MRT_t.csv", sep = ";", quote = F, row.names = F)
 write.table(regs_cjo_MRT_m, file = "C:/Users/INSEE_User/Documents/Projets R/Formation-JD+-Ansade/Donnees/reg_cjo_MRT_m.csv", sep = ";", quote = F, row.names = F)
+
+rjd3workspace::write_calendars(cal_MRT, file = "../data/cal_MRT.xml")
