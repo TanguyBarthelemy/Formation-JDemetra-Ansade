@@ -36,7 +36,7 @@ spec_2
 sa_x13_v2_2$regarima$specification$regression$userdef$outliers
 
 
-## Version 2 -------------------------------------------------------------------
+## Version 3 -------------------------------------------------------------------
 
 # start with default spec
 
