@@ -1,23 +1,27 @@
 # Intallation des packages R
 
-install.packages(c(
-    "dplyr",
-    "openxlsx",
-    "xlsx",
-    "zoo",
-    "xts",
-    "tsbox",
-    "imputeTS",
-    "lubridate",
-    "RJDemetra",
-    "remotes",
-    "rjwsacruncher",
-    "JDCruncheR",
-    "dygraphs",
-    "ggplot2",
-    "rjd3toolkit",
-    "rjd3x13",
-    "rjd3tramoseats",
-    "rjd3workspace",
-    "ggdemetra3"
-))
+# Packages sur le CRAN
+install.packages("dplyr")
+install.packages("openxlsx")
+install.packages("xlsx")
+install.packages("zoo")
+install.packages("xts")
+install.packages("tsbox")
+install.packages("imputeTS")
+install.packages("lubridate")
+install.packages("RJDemetra")
+install.packages("remotes")
+install.packages("rjwsacruncher")
+install.packages("JDCruncheR")
+install.packages("dygraphs")
+install.packages("ggplot2")
+
+remotes::install_github("rjdverse/rjd3toolkit")
+remotes::install_github("rjdverse/rjd3x13")
+remotes::install_github("rjdverse/rjd3tramoseats")
+remotes::install_github("rjdverse/rjd3providers")
+remotes::install_github("rjdverse/rjd3workspace")
+
+remotes::install_github("TanguyBarthelemy/rjd3production")
+
+remotes::install_github("AQLT/ggdemetra3")

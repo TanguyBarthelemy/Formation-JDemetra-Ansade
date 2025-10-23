@@ -2,8 +2,14 @@
 
 # load TD regressors
 
-regs <- read.xlsx(file.path("Donnees", "reg_cjo_m.xlsx"), detectDates = TRUE)
-View(regs)
+regs_MRT <- read.csv("Projets R/Formation-JD+-Ansade/Donnees/reg_cjo_MRT_m.csv", sep = ";")
+
+
+
+
+
+# regs <- read.xlsx(file.path("Donnees", "reg_cjo_m.xlsx"), detectDates = TRUE)
+# View(regs)
 
 mts_regs <- ts(regs[, -1], frequency = 12, start = c(1990, 1))
 class(mts_regs)

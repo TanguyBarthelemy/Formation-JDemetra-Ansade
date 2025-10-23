@@ -11,7 +11,7 @@ library("rjd3tramoseats")
 ## Import des données ----------------------------------------------------------
 
 # Données CSV
-ipi <- read.csv2(file.path("Donnees", "IPI_nace4.csv"))
+ipi <- read.csv2("Projets R/data/IPI_nace4.csv")
 str(ipi)
 ipi$date <- as.Date(ipi$date, format = "%d/%m/%Y")
 ipi[, -1] <- sapply(ipi[, -1], as.numeric)
@@ -82,4 +82,4 @@ X11_v2 <- RJDemetra::x13(y_raw, spec = "X11")
 X11_v2
 
 # En version 3, décomposition X11 avec rjd3x13
-x11_v3 <- rjd3x13::x11(y_raw)
+x11_v3 <- rjd3x13::x11(ts = y_raw)

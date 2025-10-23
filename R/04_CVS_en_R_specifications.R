@@ -62,8 +62,8 @@ start(m$result$final$d11final)
 ## define span until d1, excluded
 x13_spec_d <- set_basic(
     x13_spec_d,
-    type = "From",
-    d0 = "2014-01-01",
+    type = "To",
+    d1 = "2020-01-01",
     preliminary.check = TRUE,
     preprocessing = TRUE
 )
@@ -141,7 +141,7 @@ x13_spec_d <- rjd3toolkit::set_outlier(
     x13_spec_d,
     span.type = "From",
     d0 = "2012-01-01",
-    outliers.type = c("LS", "AO"), # LS are excluded
+    outliers.type = c("TC", "AO"), # LS are excluded
     critical.value = 5,
     tc.rate = 0.85
 )
