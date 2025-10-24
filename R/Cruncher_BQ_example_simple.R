@@ -14,11 +14,11 @@ library("rjd3workspace")
 # Si vous voulez utiliser notre WS, il faut mettre à jour le chemin vers les données brutes
 
 # Chemin pour rendre les ws  ref et auto crunchable
-donnees <- normalizePath("Donnees/IPI_nace4.csv")
+donnees <- normalizePath("./Projets R/data/IPI_nace4_ind.xlsx")
 donnees
 
 # update path
-file <- normalizePath("WS/example_1.xml")
+file <- normalizePath("D:/Exo_1.xml")
 ws_example <- jws_open(file)
 txt_update_path(
     jws = ws_example,
@@ -31,11 +31,11 @@ save_workspace(jws = ws_example, file = file, replace = TRUE)
 ## Options et paramètres -------------------------------------------------------
 
 # Mettre votre chemin menant au cruncher
-cruncher_bin_path <- normalizePath("C:/Users/UTZK0M/Software/jdemetra-related/jwsacruncher-3.5.1/bin/")
+cruncher_bin_path <- "C:/Users/INSEE_User/Documents/Software/jwsacruncher-standalone-3.5.1-windows-x86_64/jwsacruncher-3.5.1/bin/"
 cruncher_bin_path
 
 options(
-    cruncher_bin_directory = cruncher_bin_path,
+    cruncher_bin_directory = "D:/jwsacruncher-3.5.1/bin", #cruncher_bin_path,
     is_cruncher_v3 = TRUE,
     default_matrix_item = c(
         "span.start",
@@ -77,27 +77,27 @@ options(
 getOption("default_matrix_item")
 
 getOption("default_tsmatrix_series")
-options(default_tsmatrix_series = c("s", "s_f", "sa", "sa_f"))
+options(default_tsmatrix_series = c("s", "s_f", "sa", "sa_f", "y", "y_lin", "y_f"))
 
 # attention: faire une copie avant de cruncher (ex: copie to repo cruncher)
 # cruncher : mise à jour du workspace
 getwd()
 cruncher_and_param(
     # Mettre le chemin menant à votre WS
-    workspace = "WS/example_1.xml",
+    workspace = "C:/Users/INSEE_User/Documents/ipi-MRT.xml",
     rename_multi_documents = TRUE,
     delete_existing_file = TRUE,
     policy = "complete",
     csv_layout = "vtable",
     short_column_headers = FALSE,
-    log_file = "WS/example_1.log"
+    log_file = "C:/Users/INSEE_User/Documents/output-cruncher.txt"
 )
 
 
 ## Lecture pondérations --------------------------------------------------------
 
 POND_NAF4 <- read.csv(
-    "Donnees/Ponderations_2024.csv",
+    "./Projets R/Formation-JD+-Ansade/Donnees/Ponderations_2024.csv",
     encoding = "UTF-8",
     dec = ","
 )
@@ -108,7 +108,8 @@ colnames(POND_NAF4)
 
 ## Generation BQ ---------------------------------------------------------------
 
-demetra_path <- "WS/example_1/Output/SAProcessing-1/demetra_m.csv"
+demetra_path1 <- "C:/Users/INSEE_User/Documents/ipi-MRT/Output/SAProcessing-1/demetra_m.csv"
+demetra_path2 <- "C:/Users/INSEE_User/Desktop/demetra_m.csv"
 
 BQ_example <- demetra_path |>
     extract_QR() |>
@@ -152,5 +153,5 @@ scores_example <- extract_score(BQ_example, weighted_score = TRUE)
 
 export_xlsx(
     x = BQ_example,
-    file = "BQ/BQ_example.xlsx"
+    file = "mon_BQ_ipi.xlsx"
 )
